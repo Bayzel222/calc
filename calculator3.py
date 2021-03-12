@@ -1,25 +1,48 @@
-str_input = input("Delimoe: ")
-delimoe = int(str_input)
+str_command = input("введите выражение a + b or a - b: ")
 
-operation = input ("+ / * - ^ ")
-str_input2 = input("Delitel: ")
-delitel = int(str_input2)
+sign_A = '' 
+sign_B = ''
 
-if operation == "+":
-	result = delimoe + delitel
-elif operation == "/":
-         if delitel != 0:
-                 result = delimoe / delitel
-         else:
-               result = "nevozmozhno"         
- 
-elif operation == "*":
-        result = delimoe * delitel
-elif operation == "-":
-	 result = delimoe - delitel
-elif operation == "^":
-        result = delimoe ^ delitel
+str_A = ''
+str_B = ''
 
-	
+operation = '' 
+i = 0
+
+while i < len(str_command) :
+    if str_command[i] == '+' or str_command[i] == '-' or str_command[i] == '*' or str_command[i] == '/' or str_command[i] == '^' :
+        if str_A == '': 
+            sign_A = str_command[i]
+        elif operation != '':
+            sign_B = str_command[i]
+        else:
+            operation = str_command[i]
+    else:
+        if operation == '':
+            str_A += str_command[i]
+        else:
+            str_B += str_command[i]
+    i += 1
+
+chislo_A=float(sign_A + str_A)
+chislo_B=float(sign_B + str_B)
+
+result = None
+
+if operation=='/' :
+    if chislo_B == 0:
+        result = "на 0 делить нельзя"
+    else:
+        result = chislo_A/chislo_B
+elif operation=='*' : 
+    result=chislo_A*chislo_B
+elif operation=='-' : 
+    result=chislo_A-chislo_B
+elif operation=='+' : 
+    result=chislo_A+chislo_B
+elif operation=='^' : 
+    result=chislo_A**chislo_B
+else : 
+    result='Введите оператор'
+
 print("Result: " + str(result))
-
