@@ -31,8 +31,6 @@ if len(sys.argv) <= 1:
     print(calc(command))
 else:
     filename = sys.argv[1]
-    f = open('output.txt', 'w')
-    f.close()
     command = getfromfile(filename)
     c = len(command)
     for i in range(c):
