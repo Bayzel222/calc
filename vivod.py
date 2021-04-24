@@ -31,12 +31,19 @@ if len(sys.argv) <= 1:
     print(calc(command))
 else:
     filename = sys.argv[1]
+<<<<<<< HEAD
     f = open('output.txt', 'w')
     f.close()
+=======
+>>>>>>> 499de6ed9d7b924bd94ea7857a42a008390a50d5
     command = getfromfile(filename)
     c = len(command)
     for i in range(c):
         y = calc(command[i])
         print(y)
         with open('output.txt', 'a') as f:
+<<<<<<< HEAD
             f.writelines(str(y) + '\n')
+=======
+            f.writelines(str(y) + '\n')
+>>>>>>> 499de6ed9d7b924bd94ea7857a42a008390a50d5
